@@ -22,8 +22,8 @@ public class Start {
                     case 2 -> Snacks.agregarSnack();
                     case 3 -> {
                         Venta venta = new Venta();
-                        Venta.ventas.add(venta);
                         venta.realizarVenta();
+                        Venta.ventas.add(venta);
                     }
                     case 4 -> Venta.mostrarVentas();
                     case 5 -> maquinaActiva = false;
@@ -42,10 +42,10 @@ public class Start {
         Snack s2 = new Snack("papas hilos",2.00);
         Snack s3 = new Snack("taquiz",5.6);
         Snack s4 = new Snack("doritos", 10.5);
-        Snacks.listaSnacks.add(s3);
-        Snacks.listaSnacks.add(s4);
         Snacks.listaSnacks.add(s1);
         Snacks.listaSnacks.add(s2);
+        Snacks.listaSnacks.add(s3);
+        Snacks.listaSnacks.add(s4);
         inicio.menu();
     }
 }

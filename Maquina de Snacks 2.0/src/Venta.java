@@ -27,23 +27,31 @@ public class Venta {
         Scanner consola = new Scanner(System.in);
         System.out.print("Escoje tus Snacks por ID (0 para terminar): ");
         int id = Integer.parseInt(consola.nextLine());
+        boolean encontrado = false;
         for (Snack busc: Snacks.listaSnacks){
             if (busc.getIdSnack() == id){
                 this.listaSnacksVenta.add(busc);
+                System.out.println(busc.getNombre()+" Agregado.");
+                encontrado = true;
                 break;
             }
         }
+        if (!encontrado && (id != 0)) {
+            System.out.println("El snack con ID " + id + " no existe.");
+        }
+
+
         return id;
     }
     public void realizarVenta(){
         if (tieneSnack()){
             Snacks.verSnacks();
         }
-        boolean para = true;
-        while (para){
+        boolean parar = false;
+        while (!parar){
             int id = selecionSnackPorID();
             if (id == 0)
-                para = false;
+                parar = true;
         }
         System.out.println("Venta Realizad con EXITO: $"+totalVenta());
     }
